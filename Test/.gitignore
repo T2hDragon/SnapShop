@@ -1,0 +1,20 @@
+# ASP.NET Core
+bin/
+obj/
+
+# IDEA
+.idea/
+.vscode/
+
+# NuGet Packages
+*.nupkg
+**/packages/
+
+# .NET Core Build Results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Nn]ode_modules/
+[Ll]ogFiles/
+_t*

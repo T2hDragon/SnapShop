@@ -1,0 +1,19 @@
+# ASP.NET Core
+bin/
+obj/
+
+# JetBrains Rider
+.idea/
+
+# NuGet Packages
+*.nupkg
+**/packages/
+
+# .NET Core Build Results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Nn]ode_modules/
+[Ll]ogFiles/
+_t*

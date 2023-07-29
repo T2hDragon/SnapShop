@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: 'snapshop-backend'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/src
+    depends_on:
+      - db
+    networks:
+      - snapshop
+
+  db:
+    container_name: 'snapshop-db'
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: SnapShop
+      POSTGRES_PASSWORD: XawkJnVjHW2974jsK8GVx44
+      POSTGRES_DB: SnapShop
+    ports:
+      - 5432:5432
+    volumes:
+      - snapshop_data:/var/lib/postgresql/data/ 
+    networks:
+      - snapshop
+
+volumes:
+  snapshop_data:
+
+networks:
+  snapshop:
+    driver: bridge

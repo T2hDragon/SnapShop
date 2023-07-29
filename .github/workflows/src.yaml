@@ -1,0 +1,41 @@
+name: .NET Src
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.x'
+
+# Src
+      - name: Build Src
+        working-directory: Src
+        run: dotnet restore & dotnet build
+
+      - name: Format Src code
+        working-directory: Src
+        run: dotnet format --verify-no-changes
+
+# Test
+      - name: Build Test
+        working-directory: Test
+        run: dotnet restore & dotnet build
+
+      - name: Format Test code
+        working-directory: Test
+        run: dotnet format --verify-no-changes
+
+      - name: Format Test code
+        working-directory: Test
+        run: dotnet format --verify-no-changes
